@@ -1,16 +1,61 @@
-# React + Vite
+# Daily Spark ✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small web app that generates three playful prompts to bring a little curiosity, creativity, and magic into the day.
 
-Currently, two official plugins are available:
+Each day you can reveal a handful of **“sparks”** — tiny invitations to try something new, connect with someone, move your body, explore creativity, or simply notice the world.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Some sparks are whimsical, some reflective, some practical, and some just a little bit strange.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* ✨ Random daily sparks
+* 🌕 Special sparks on the **full moon**
+* 🃏 **Tarot Monday** prompts every week
+* 📱 Mobile-friendly design
+* 🎨 Animated landscape background
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React
+* Vite
+* CSS
+* `lunarphase-js` for moon phase detection
+
+## Running locally
+
+Clone the repository and run:
+
+```
+npm install
+npm run dev
+```
+
+Then open:
+
+```
+http://localhost:5173
+```
+
+## Deployment
+
+The app is deployed using **Vercel**.
+
+## Idea
+
+The idea behind Daily Spark is simple:
+
+Small actions can change the tone of a day.
+
+A spark might be:
+
+* something creative
+* something connective
+* something calming
+* something playful
+* something a little magical
+
+Just enough to nudge the day somewhere interesting.
+
+---
+
+Made with curiosity and a bit of moonlight 🌙
