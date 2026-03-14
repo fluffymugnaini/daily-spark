@@ -103,6 +103,14 @@ button {
   animation: driftMist 16s ease-in-out infinite;
 }
 
+.spark-message {
+  margin-top: 22px;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  font-style: italic;
+  letter-spacing: 0.4px;
+}
+
 /* sparkle/grain layer */
 .shimmer {
   position: absolute;

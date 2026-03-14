@@ -4,7 +4,20 @@ import "./App.css";
 import { Moon } from "lunarphase-js";
 
 function App() {
-  const [selectedSparks, setSelectedSparks] = useState([]);
+const [selectedSparks, setSelectedSparks] = useState(() => {
+  const saved = localStorage.getItem("dailySparks");
+
+  if (!saved) return [];
+
+  const parsed = JSON.parse(saved);
+  const today = new Date().toDateString();
+
+  if (parsed.date === today) {
+    return parsed.sparks;
+  }
+
+  return [];
+});
 
   const today = new Date().toLocaleDateString("en-GB", {
     weekday: "long",
@@ -41,6 +54,14 @@ function generateSparks() {
   chosen.push(...shuffled.slice(0, numberOfRegularSparks));
 
   setSelectedSparks(chosen);
+
+  localStorage.setItem(
+    "dailySparks",
+    JSON.stringify({
+      date: new Date().toDateString(),
+      sparks: chosen,
+    })
+  );
 }
 
   return (
@@ -71,21 +92,34 @@ function generateSparks() {
 
         <p className="date">{today}</p>
         <h1 className="title">Daily Spark</h1>
-        <p className="subtitle">A small spark for the day</p>
+        <p className="subtitle">Pick one small spark for the day</p>
 
-        <button className="spark-button" onClick={generateSparks}>
-          Reveal Today&apos;s Sparks
-        </button>
+        {selectedSparks.length === 0 && (
+          <button className="spark-button" onClick={generateSparks}>
+            Reveal Your Sparks
+          </button>
+        )}
 
         {selectedSparks.length > 0 && (
-          <div className="sparks-list">
-            {selectedSparks.map((spark, index) => (
-              <div key={index} className="spark-card" style={{ animationDelay: `${index * 0.3}s` }}>
-                <span className="spark-icon">✦</span>
-                {spark}
-              </div>
-            ))}
-          </div>
+          <>
+            <div className="sparks-list">
+              {selectedSparks.map((spark, index) => (
+                <div
+                  key={index}
+                  className="spark-card"
+                  style={{ animationDelay: `${index * 0.3}s` }}
+                >
+                  <span className="spark-icon">✦</span>
+                  {spark}
+                </div>
+              ))}
+            </div>
+
+            <p className="spark-message">
+              Today’s sparks revealed ✨  
+              Come back tomorrow for new ones.
+            </p>
+          </>
         )}
       </div>
     </div>
