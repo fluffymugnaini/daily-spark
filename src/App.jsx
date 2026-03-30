@@ -50,7 +50,7 @@ function generateSparks() {
   }
 
   const shuffled = [...sparks].sort(() => 0.5 - Math.random());
-  const numberOfRegularSparks = isFullMoon ? 2 : 3;
+  const numberOfRegularSparks = (isFullMoon || isMonday) ? 2 : 3;
   chosen.push(...shuffled.slice(0, numberOfRegularSparks));
 
   setSelectedSparks(chosen);
