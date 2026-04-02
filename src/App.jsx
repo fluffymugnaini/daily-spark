@@ -90,7 +90,7 @@ function generateSparks() {
           ✦
         </div>
 
-        <p className="date">{today}</p>
+        {/* <p className="date">{today}</p> */}
         <h1 className="title">Daily Spark</h1>
         <p className="subtitle">Pick one small spark for the day</p>
 
@@ -109,7 +109,7 @@ function generateSparks() {
                   className="spark-card"
                   style={{ animationDelay: `${index * 0.3}s` }}
                 >
-                  <span className="spark-icon">✦</span>
+                  {/* <span className="spark-icon">✦</span> */}
                   {spark}
                 </div>
               ))}

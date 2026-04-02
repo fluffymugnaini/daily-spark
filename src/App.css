@@ -423,6 +423,7 @@ button {
     font-size: clamp(52px, 14vw, 84px);
     line-height: 0.95;
     margin-bottom: 16px;
+    margin-top: 34px;
   }
 
   .subtitle {
