@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sparks, fullMoonSparks, mondayTarotSparks } from "./data/sparks";
+import { sparks, fullMoonSparks, mondayTarotSparks, writingSparks } from "./data/sparks";
 import "./App.css";
 import { Moon } from "lunarphase-js";
 
@@ -36,11 +36,18 @@ function generateSparks() {
 
   const today = new Date();
   const isMonday = today.getDay() === 1;
+  const isFriday = today.getDay() === 5;
 
   if (isMonday) {
     const tarotSpark =
       mondayTarotSparks[Math.floor(Math.random() * mondayTarotSparks.length)];
     chosen.push(tarotSpark);
+  }
+
+  if (isFriday) {
+    const writingSpark =
+      writingSparks[Math.floor(Math.random() * writingSparks.length)];
+    chosen.push(writingSpark);
   }
 
   if (isFullMoon) {
@@ -50,7 +57,7 @@ function generateSparks() {
   }
 
   const shuffled = [...sparks].sort(() => 0.5 - Math.random());
-  const numberOfRegularSparks = (isFullMoon || isMonday) ? 2 : 3;
+  const numberOfRegularSparks = (isFullMoon || isMonday || isFriday) ? 2 : 3;
   chosen.push(...shuffled.slice(0, numberOfRegularSparks));
 
   setSelectedSparks(chosen);
